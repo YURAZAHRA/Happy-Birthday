@@ -7,17 +7,6 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    {
-      name: 'html-entry-fallback',
-      transformIndexHtml: {
-        order: 'pre',
-        handler(html) {
-          return html
-            .replace(/<link rel="stylesheet"[^>]*assets\/index-[^>]*>/gi, '')
-            .replace(/<script type="module"[^>]*src="[^"]*assets\/index-[^"]*\.js"[^>]*><\/script>/gi, '<script type="module" src="/src/main.jsx"></script>')
-        },
-      },
-    },
   ],
   server: {
     host: true,   // expose on local network (same as --host flag)
